@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { assetUrl } from 'src/single-spa/asset-url';
+// @ts-ignore
+import { nameSubject$ } from '@cirrusit/flux';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,5 +14,6 @@ export class AppComponent {
 
   sendName(){
     console.log("Send name",this.name);
+    nameSubject$.next(this.name);
   }
 }
